@@ -1,0 +1,11 @@
+<h1>Список ингредиентов</h1>
+
+<%= form_tag(orders_path, method: :post, remote: true) do %>
+  <% @ingredients.each do |ingredient_name| %>
+    <label>
+      <%= check_box_tag 'order[excluded_ingredients][]', ingredient_name %>
+      <%= ingredient_name %>
+    </label><br>
+  <% end %>
+  <%= submit_tag 'Отправить' %>
+<% end %>
